@@ -7,25 +7,25 @@ Config.Debug = false
 Config.Framework = 'qb' -- 'qb', 'esx'
 
 -- what inventory do you use?
-Config.Inventory = 'qb' -- 'qb', 'ps', 'ox'
+Config.Inventory = 'ps' -- 'qb', 'ps', 'ox'
 
 -- what target do you use?
-Config.Target = 'qb' -- 'qb', 'ox' (false: DrawText3D)
+Config.Target = 'ox' -- 'qb', 'ox' (false: DrawText3D)
 
 -- what radial menu do you use?
 Config.Radial = 'qb' -- 'qb', 'ox'
 
 -- what dispatch to use for police alerts?
-Config.Dispatch = 'qb' -- 'qb', 'ps', 'moz', 'cd', 'custom'
+Config.Dispatch = 'ps' -- 'qb', 'ps', 'moz', 'cd', 'custom'
 
 -- what menu you want to use?
-Config.OxMenu = true -- true: Ox Menu, false: Ox Context Menu
+Config.OxMenu = false -- true: Ox Menu, false: Ox Context Menu
 
 -- Minimum cops required to sell drugs
 Config.MinimumCops = 0
 
 -- Give bonus on selling drugs when no of cops are online
-Config.GiveBonusOnPolice = false
+Config.GiveBonusOnPolice = true
 
 -- Allow selling to peds sitting in vehicle
 Config.SellPedOnVehicle = false
