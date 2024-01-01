@@ -179,7 +179,7 @@ local function createTarget()
 	Framework:AddGlobalPed({
 		{
 			name = 'drugTalkPed',
-			label = 'Talk',
+			label = 'Sell',
 			icon = 'fas fa-comments',
 			distance = 4,
 			-- for 'qb-target'
@@ -198,7 +198,7 @@ local function createTarget()
 		Framework:AddGlobalVehicle({
 			{
 				name = 'drugTalkVehicle',
-				label = 'Talk',
+				label = 'Sell',
 				icon = 'fas fa-comments',
 				-- for 'qb-target'
 				action = function(entity)
@@ -226,8 +226,8 @@ exports('CreateTarget', createTarget)
 
 -- Remove Sell Drugs to peds inside the sellzone
 local function removeTarget()
-	Framework:RemoveGlobalPed({'Talk', 'drugTalkPed'})
-	if Config.SellPedOnVehicle then Framework:RemoveGlobalVehicle({'Talk', 'drugTalkVehicle'}) end
+	Framework:RemoveGlobalPed({'Sell', 'drugTalkPed'})
+	if Config.SellPedOnVehicle then Framework:RemoveGlobalVehicle({'Sell', 'drugTalkVehicle'}) end
 end
 exports('RemoveTarget', removeTarget)
 
@@ -321,7 +321,7 @@ CreateThread(function()
 					local pedPos = GetEntityCoords(ped)
 					local distance = #(vec3(myPos.x, myPos.y, myPos.z)- vec3(pedPos.x, pedPos.y, pedPos.z))
 					if distance < 2 and ped ~= cache.ped and not hasSoldPed(ped) then
-						Framework:DrawText3D(pedPos.x, pedPos.y, pedPos.z, '[E] Talk')
+						Framework:DrawText3D(pedPos.x, pedPos.y, pedPos.z, '[E] Sell')
 						if IsControlJustPressed(0, 38) then
 							initiateSales(ped)
 						end
