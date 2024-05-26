@@ -93,7 +93,8 @@ local function initiateSell(ped)
 	if not CurrentZone and not Config.SellAnywhere then return end
 	local items = Framework:GetSellItems(CurrentZone)
 	if not items then return end
-	local randamt = math.random(Config.RandomSell.min, Config.RandomSell.max)
+	local sellAmt = Framework:GetRandomSell(CurrentZone)
+	local randamt = math.random(sellAmt.min, sellAmt.max)
 	local itemCount = #items
 	local hasSold = false
 	for i=1, itemCount, 1 do
@@ -146,10 +147,9 @@ local function initiateSales(entity)
 		Framework:Notify('Buyer is not interested to buy now!')
 		if Config.Debug then print('Not Enough Cops') end
 	else
-		local netId = NetworkGetNetworkIdFromEntity(entity)
-		local isSoldtoPed = hasSoldPed(netId)
+		local isSoldtoPed = hasSoldPed(entity)
 		if isSoldtoPed then Framework:Notify('You already spoke with this local') return false end
-		addSoldPed(netId)
+		addSoldPed(entity)
 		InteractPed(entity)
 		if Config.Debug then print('Drug Sales Initiated now proceding to interact') end
 	end
